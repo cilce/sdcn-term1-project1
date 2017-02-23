@@ -8,7 +8,7 @@ The lane detection pipeline in this solution is as follows:
 2. Gaussian smoothing with a kernel of size 5 is applied to reduce the noise 
 3. Canny transform is applied. The parameters for Canny is calculated in a dynamic way, by taking the mean of the pixels, and multiplying by constants (the suggestion from a web source is followed here, for better results, the constants might need to be calculated in a different way)
 4. The region of interest is selected on the image according to the camera position on the vehicle.
-5. Hough transform is applied with empirical parameter choice. In addition to the standard hough transform, the individual lines on each side are averaged(their midpoint and slope, with the weight of their length), and passed through a historical mean of the last 60 frames in order to make the noise less visible. (This changes are part of the "draw_lines" function) 
+5. Hough transform is applied with empirical parameter choice. In addition to the standard hough transform, the individual lines on each side are averaged(their midpoint and slope, with the weight of their length), and passed through a historical mean of the last 40 frames in order to make the noise less visible. (This changes are part of the "draw_lines" function) 
 6. The highlighted lanes are merged with the actual image.
 
 
